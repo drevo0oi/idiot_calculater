@@ -1,6 +1,6 @@
 import os
 from num_16 import menu_strings
-#import
+from menu_calculete_nums import menu_calc_numbers
 #import    
 
 class NotCalculaterFunction(Exception):
@@ -20,7 +20,7 @@ def menu():
             if a<1 or a>3:
                 raise NotCalculaterFunction
             if a==1:
-                raise Nothing
+                menu_calc_numbers()
             if a==2:
                 menu_strings()
             if a==3:
@@ -34,6 +34,8 @@ def menu():
         except Nothing:
             error="никто не сделал эту функцию, но спасибо за оплату"
         finally:
+            if(error!=""):
+                print("произошла ошибка (вернитесь чтобы узнать подробнее)")
             t=input("нажмите enter что бы вернуться")
             os.system('cls' if os.name == 'nt' else 'clear')
             print(error)
